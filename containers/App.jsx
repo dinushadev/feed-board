@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component} from "react";
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import MainSection from '../components/MainSection';
+import FeedBord from '../components/FeedBord';
 import * as TodoActions from '../actions/todos';
 
 // For Customization Options, edit  or use
@@ -14,14 +15,15 @@ class App extends Component {
   render() {
     const { todos, actions } = this.props;
     return (
-      <div>
         <MuiThemeProvider muiTheme={theme}>
-          <div>
-            <Header addTodo={actions.addTodo}/>
-            <MainSection todos={todos} actions={actions}/>
+          <div className="top-dev">
+              <Header addTodo={actions.addTodo}/>
+              <div className="root-contaner" >
+                  <div className="left-navi">Nav</div>
+                  <FeedBord className="main-contaner" />
+              </div>
           </div>
         </MuiThemeProvider>
-      </div>
     );
   }
 }
